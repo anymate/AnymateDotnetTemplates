@@ -1,0 +1,4 @@
+# Anymate Enterprise Framework
+
+These templates are great examples to get started with both Anymate Workers and Anymate Allocators. 
+They are built to be Enterprise ready, with [asynchronous programming](https://docs.microsoft.com/en-us/dotnet/standard/async) at the foundation, and come set up ready for [Inversion of Control](https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#dependency-inversion) using [Dependency Injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection). Further, the [microsoft logging framework](https://docs.microsoft.com/en-us/dotnet/core/extensions/logging) is also set up and can easily be extended with a multitude of libraries. 
