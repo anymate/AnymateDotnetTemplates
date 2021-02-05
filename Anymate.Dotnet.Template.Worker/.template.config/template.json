@@ -1,10 +1,10 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "Me",
+  "author": "Anymate",
   "classifications": [ "Common", "Console", "C#9" ],
-  "identity": "Anymate.Dotnet.Template.Worker",
-  "name": "Template for an Anymate Worker using .NET 5 and C#9",
-  "shortName": "consoleasync",
+  "identity": "Anymate.Dotnet.Template.Allocator",
+  "name": "Anymate Allocator",
+  "shortName": "anymateallocator",
   "tags": {
     "language": "C#",
     "type": "project"

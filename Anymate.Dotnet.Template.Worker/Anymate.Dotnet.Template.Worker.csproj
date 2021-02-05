@@ -1,11 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+   
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0</PackageVersion>
+    <PackageId>Anymate.Dotnet.Template.Worker</PackageId>
+    <Title>Anymate Worker Template</Title>
+    <Authors>Anymate</Authors>
+    <Description>Anymate Enterprise templates for .NET</Description>
+    <PackageTags>dotnet-new;templates</PackageTags>
+
     <TargetFramework>net5.0</TargetFramework>
     <LangVersion>9.0</LangVersion>
-
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>
+
+
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Anymate" Version="1.0.1" />
