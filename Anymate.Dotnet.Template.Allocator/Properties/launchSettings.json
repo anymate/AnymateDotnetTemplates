@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Anymate.Dotnet.Template.Worker": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
