@@ -8,7 +8,6 @@
     <Authors>Anymate</Authors>
     <Description>Anymate Enterprise templates for .NET</Description>
     <PackageTags>dotnet-new;templates</PackageTags>
-
     <TargetFramework>net5.0</TargetFramework>
     <LangVersion>9.0</LangVersion>
     <IncludeContentInPack>true</IncludeContentInPack>
@@ -16,15 +15,14 @@
     <ContentTargetFolders>content</ContentTargetFolders>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>
-    <ItemGroup>
-    <Content Include="**\*" Exclude="**\bin\**;**\obj\**;**\Properties\**;**\.template.config\**" />    
-  </ItemGroup>
   <ItemGroup>
+    <Content Include="**\*" Exclude="**\bin\**;**\obj\**;**\Properties\**" />
     <Compile Remove=".vs\**" />
     <Content Remove=".vs\**" />
     <EmbeddedResource Remove=".vs\**" />
     <None Remove=".vs\**" />
   </ItemGroup>
+
 
 
   <ItemGroup>
