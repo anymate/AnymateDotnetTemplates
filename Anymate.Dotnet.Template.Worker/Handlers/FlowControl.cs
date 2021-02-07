@@ -130,32 +130,35 @@ namespace Anymate.Dotnet.Template.Worker.Handlers
 
             }
 
-            if (action.SendToError && action.RetryTaskLater)
+            switch (action.AnymateEndpoint)
             {
-                var endpoint = "Retry";
-                var response = await _anymateService.RetryAsync(action.GetAnymateRetryTaskAction());
-                return LogAnymateResponse(action.TaskId, endpoint, response);
+                case AnymateEndpoint.Manual:
+                    {
+                        var endpoint = "Manual";
+                        var response = await _anymateService.ManualAsync(action.GetAnymateTaskAction());
+                        return LogAnymateResponse(action.TaskId, endpoint, response);
+                    }
+                case AnymateEndpoint.Retry:
+                    {
+                        var endpoint = "Retry";
+                        var response = await _anymateService.RetryAsync(action.GetAnymateRetryTaskAction());
+                        return LogAnymateResponse(action.TaskId, endpoint, response);
+                    }
+                case AnymateEndpoint.Error:
+                    {
+                        var endpoint = "Error";
+                        var response = await _anymateService.ErrorAsync(action.GetAnymateTaskAction());
+                        return LogAnymateResponse(action.TaskId, endpoint, response);
+                    }
+                case AnymateEndpoint.Solved:
+                default:
+                    {
+                        var endpoint = "Solved";
+                        var response = await _anymateService.SolvedAsync(action.GetAnymateTaskAction());
+                        return LogAnymateResponse(action.TaskId, endpoint, response);
+                    }
             }
 
-            if (action.SendToError)
-            {
-                var endpoint = "Error";
-                var response = await _anymateService.ErrorAsync(action.GetAnymateTaskAction());
-                return LogAnymateResponse(action.TaskId, endpoint, response);
-            }
-
-            if (action.SendToManual)
-            {
-                var endpoint = "Manual";
-                var response = await _anymateService.ManualAsync(action.GetAnymateTaskAction());
-                return LogAnymateResponse(action.TaskId, endpoint, response);
-            }
-
-            {
-                var endpoint = "Solved";
-                var response = await _anymateService.SolvedAsync(action.GetAnymateTaskAction());
-                return LogAnymateResponse(action.TaskId, endpoint, response);
-            }
 
         }
 

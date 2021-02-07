@@ -16,9 +16,7 @@
     <ContentTargetFolders>content</ContentTargetFolders>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>
-    <ItemGroup>
-    <Content Include="**\*" Exclude="**\bin\**;**\obj\**" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Anymate" Version="1.0.1" />

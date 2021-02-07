@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Anymate.Dotnet.Template.Worker.Configuration;
+using System;
 
 namespace Anymate.Dotnet.Template.Worker.Models
 {
@@ -8,11 +9,9 @@ namespace Anymate.Dotnet.Template.Worker.Models
         {
         }
 
-        public TaskAction(long taskId, string reason = null, string comment = null, bool sendToManual = false, bool sendToError = false, bool retryTaskLater = false, DateTimeOffset? newActivationDate = null,  int? overwriteSecondsSaved = null, int? overwriteEntries = null)
+        public TaskAction(long taskId, string reason = null, string comment = null, AnymateEndpoint endpoint = AnymateEndpoint.Solved, DateTimeOffset? newActivationDate = null,  int? overwriteSecondsSaved = null, int? overwriteEntries = null)
         {
-            SendToManual = sendToManual;
-            SendToError = sendToError;
-            RetryTaskLater = retryTaskLater;
+            AnymateEndpoint = endpoint;
             NewActivationDate = newActivationDate;
             TaskId = taskId;
             Reason = reason;
@@ -20,10 +19,7 @@ namespace Anymate.Dotnet.Template.Worker.Models
             OverwriteSecondsSaved = overwriteSecondsSaved;
             OverwriteEntries = overwriteEntries;
         }
-
-        public bool SendToManual { get; set; } = false;
-        public bool SendToError { get; set; } = false;
-        public bool RetryTaskLater { get; set; } = false;
+        public AnymateEndpoint AnymateEndpoint { get; set; } = AnymateEndpoint.Solved;
         public DateTimeOffset? NewActivationDate { get; set; } = null;
         public long TaskId { get; set; }
         public string Reason { get; set; }

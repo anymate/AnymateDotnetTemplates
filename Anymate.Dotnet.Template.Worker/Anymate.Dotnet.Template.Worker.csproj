@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-
     <PackageType>Template</PackageType>
     <PackageVersion>1.0</PackageVersion>
     <PackageId>Anymate.Dotnet.Template.Worker</PackageId>
@@ -17,11 +16,7 @@
     <ContentTargetFolders>content</ContentTargetFolders>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Include="**\*" Exclude="**\bin\**;**\obj\**" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <Compile Remove=".vs\**" />
     <Content Remove=".vs\**" />
