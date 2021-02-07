@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <PackageId>Anymate.Dotnet.Template.Worker</PackageId>
     <Title>Anymate Worker</Title>
     <Authors>Anymate</Authors>
@@ -17,8 +17,7 @@
     <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>
     <ItemGroup>
-    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
-    <Compile Remove="**\*" />
+    <Content Include="**\*" Exclude="**\bin\**;**\obj\**;**\Properties\**;**\.template.config\**" />    
   </ItemGroup>
   <ItemGroup>
     <Compile Remove=".vs\**" />

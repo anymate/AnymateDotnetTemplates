@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <PackageId>Anymate.Dotnet.Template.Allocator</PackageId>
     <Title>Anymate Allocator</Title>
     <Authors>Anymate</Authors>
@@ -18,8 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
-    <Compile Remove="**\*" />
+   <Content Include="**\*" Exclude="**\bin\**;**\obj\**;**\Properties\**;**\.template.config\**" />    
   </ItemGroup>
   
   <ItemGroup>
