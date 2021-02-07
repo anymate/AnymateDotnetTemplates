@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Anymate",
-  "classifications": [ "Common", "Console", "C#9" ],
+  "classifications": [ "Anymate", "Common", "Console" ],
   "identity": "Anymate.Dotnet.Template.Allocator",
   "name": "Anymate Allocator",
   "shortName": "anymateallocator",
