@@ -70,7 +70,7 @@ namespace Anymate.Dotnet.Template.Worker
             _logger.LogTrace($"Task {taskId}: Sending task to {endpoint} with Reason: {reason} and Comment: {comment}.");
 
 
-            var action = new TaskAction(taskId, reason, comment, endpoint: AnymateEndpoint.Retry, newActivationDate: activationDate, overwriteSecondsSaved: overwriteSecondsSaved, overwriteEntries: overwriteEntries);
+            var action = new TaskAction(taskId, reason, comment, endpoint: AnymateEndpoint.Retry, activationDate: activationDate, overwriteSecondsSaved: overwriteSecondsSaved, overwriteEntries: overwriteEntries);
             return action;
         }
 

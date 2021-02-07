@@ -9,10 +9,10 @@ namespace Anymate.Dotnet.Template.Worker.Models
         {
         }
 
-        public TaskAction(long taskId, string reason = null, string comment = null, AnymateEndpoint endpoint = AnymateEndpoint.Solved, DateTimeOffset? newActivationDate = null,  int? overwriteSecondsSaved = null, int? overwriteEntries = null)
+        public TaskAction(long taskId, string reason = null, string comment = null, AnymateEndpoint endpoint = AnymateEndpoint.Solved, DateTimeOffset? activationDate = null,  int? overwriteSecondsSaved = null, int? overwriteEntries = null)
         {
             AnymateEndpoint = endpoint;
-            NewActivationDate = newActivationDate;
+            ActivationDate = activationDate;
             TaskId = taskId;
             Reason = reason;
             Comment = comment;
@@ -20,7 +20,7 @@ namespace Anymate.Dotnet.Template.Worker.Models
             OverwriteEntries = overwriteEntries;
         }
         public AnymateEndpoint AnymateEndpoint { get; set; } = AnymateEndpoint.Solved;
-        public DateTimeOffset? NewActivationDate { get; set; } = null;
+        public DateTimeOffset? ActivationDate { get; set; } = null;
         public long TaskId { get; set; }
         public string Reason { get; set; }
         public string Comment { get; set; }
@@ -47,7 +47,7 @@ namespace Anymate.Dotnet.Template.Worker.Models
                 OverwriteEntries = this.OverwriteEntries,
                 OverwriteSecondsSaved = this.OverwriteSecondsSaved,
                 Reason = this.Reason,
-                ActivationDate = this.NewActivationDate
+                ActivationDate = this.ActivationDate
             };
         }
     }

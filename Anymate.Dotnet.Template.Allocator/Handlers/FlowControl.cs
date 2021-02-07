@@ -121,57 +121,7 @@ namespace Anymate.Dotnet.Template.Allocator.Handlers
             RunId = run.RunId;
         }
 
-        private async Task<AnymateResponse> ReturnTaskToAnymate(TaskAction action)
-        {
-            if (action.TaskId < 1)
-            {
-                var failureMsg = $"TaskId was {action.TaskId} - Not possible to return Task to Anymate";
-                return LogAnymateResponse(action.TaskId, "[No valid TaskId]", new AnymateResponse() { Message = failureMsg, Succeeded = false });
-
-            }
-
-            if (action.SendToError && action.RetryTaskLater)
-            {
-                var endpoint = "Retry";
-                var response = await _anymateService.RetryAsync(action.GetAnymateRetryTaskAction());
-                return LogAnymateResponse(action.TaskId, endpoint, response);
-            }
-
-            if (action.SendToError)
-            {
-                var endpoint = "Error";
-                var response = await _anymateService.ErrorAsync(action.GetAnymateTaskAction());
-                return LogAnymateResponse(action.TaskId, endpoint, response);
-            }
-
-            if (action.SendToManual)
-            {
-                var endpoint = "Manual";
-                var response = await _anymateService.ManualAsync(action.GetAnymateTaskAction());
-                return LogAnymateResponse(action.TaskId, endpoint, response);
-            }
-
-            {
-                var endpoint = "Solved";
-                var response = await _anymateService.SolvedAsync(action.GetAnymateTaskAction());
-                return LogAnymateResponse(action.TaskId, endpoint, response);
-            }
-
-        }
-
-
-        private AnymateResponse LogAnymateResponse(long taskId, string endpoint, AnymateResponse response)
-        {
-            if (!response.Succeeded)
-            {
-                _logger.LogError($"Task {taskId}: Did not succeeded sending task to {endpoint}. Got message: {response.Message}");
-            }
-            else
-            {
-                _logger.LogTrace($"Task {taskId}: Succeeded sending task to {endpoint}. Got message: {response.Message}");
-            }
-            return response;
-        }
+      
     }
 }
 

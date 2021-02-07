@@ -135,26 +135,26 @@ namespace Anymate.Dotnet.Template.Worker.Handlers
                 case AnymateEndpoint.Manual:
                     {
                         var endpoint = "Manual";
-                        var response = await _anymateService.ManualAsync(action.GetAnymateTaskAction());
+                        var response = await _anymateService.ManualAsync(action);
                         return LogAnymateResponse(action.TaskId, endpoint, response);
                     }
                 case AnymateEndpoint.Retry:
                     {
                         var endpoint = "Retry";
-                        var response = await _anymateService.RetryAsync(action.GetAnymateRetryTaskAction());
+                        var response = await _anymateService.RetryAsync(action);
                         return LogAnymateResponse(action.TaskId, endpoint, response);
                     }
                 case AnymateEndpoint.Error:
                     {
                         var endpoint = "Error";
-                        var response = await _anymateService.ErrorAsync(action.GetAnymateTaskAction());
+                        var response = await _anymateService.ErrorAsync(action);
                         return LogAnymateResponse(action.TaskId, endpoint, response);
                     }
                 case AnymateEndpoint.Solved:
                 default:
                     {
                         var endpoint = "Solved";
-                        var response = await _anymateService.SolvedAsync(action.GetAnymateTaskAction());
+                        var response = await _anymateService.SolvedAsync(action);
                         return LogAnymateResponse(action.TaskId, endpoint, response);
                     }
             }
